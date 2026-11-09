@@ -1,0 +1,549 @@
+<canvas id="portfolio-safiqudafa" title="Website Profil Safiqudafa">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safiqudafa | Portfolio & Profil Pribadi</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0a0a0c;
+            --bg-card: rgba(22, 22, 29, 0.7);
+            --red-primary: #e60023;
+            --red-gradient: linear-gradient(135deg, #ff1e42 0%, #990014 100%);
+            --bg-gradient: radial-gradient(circle at top right, #2a080c 0%, #0a0a0c 60%, #000000 100%);
+            --text-main: #f1f1f5;
+            --text-muted: #a0a0ab;
+            --border-glow: rgba(255, 30, 66, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            background: var(--red-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff3b56;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 8% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .tagline {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(230, 0, 35, 0.15);
+            border: 1px solid rgba(255, 30, 66, 0.4);
+            color: #ff3b56;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+        }
+
+        .hero-content h1 span {
+            background: var(--red-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--red-gradient);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(230, 0, 35, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(230, 0, 35, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #ff3b56;
+            color: #ff3b56;
+        }
+
+        .hero-avatar {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: var(--red-gradient);
+            padding: 5px;
+            box-shadow: 0 0 50px rgba(230, 0, 35, 0.3);
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            color: #ff3b56;
+            overflow: hidden;
+        }
+
+        /* Section Global */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--red-gradient);
+            border-radius: 2px;
+        }
+
+        /* Cards & Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 30, 66, 0.6);
+            box-shadow: 0 10px 30px rgba(230, 0, 35, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: rgba(230, 0, 35, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #ff3b56;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 240px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+        }
+
+        .gallery-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(15,15,20,0.4) 0%, rgba(20,5,10,0.95) 100%);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover .gallery-content {
+            background: linear-gradient(180deg, rgba(230,0,35,0.2) 0%, rgba(10,10,12,0.95) 100%);
+        }
+
+        .gallery-icon {
+            font-size: 2.5rem;
+            color: #ff3b56;
+            margin-bottom: 15px;
+        }
+
+        .gallery-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .gallery-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: var(--red-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .contact-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-info p, .contact-info a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #ff3b56;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #050507;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+            .hero-avatar {
+                width: 240px;
+                height: 240px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo">Safiqu<span>dafa</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#skills">Keterampilan</a></li>
+            <li><a href="#gallery">Galeri Skill</a></li>
+            <li><a href="#hobby">Hobi</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tagline">PROFIL PRIBADI</span>
+            <h1>Halo, Saya <span>Safiqudafa</span></h1>
+            <p>Teknisi & Creator Kreatif yang berdomisili di Blitar. Berpengalaman dalam instalasi jaringan CCTV serta editing foto & video visual.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
+                <a href="#gallery" class="btn btn-secondary"><i class="fas fa-th"></i> Lihat Galeri</a>
+            </div>
+        </div>
+        <div class="hero-avatar">
+            <div class="avatar-inner">
+                <i class="fas fa-user-shield"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>Keterampilan Utama</h2>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Instalasi CCTV</h3>
+                <p>Pemasangan, konfigurasi IP Camera/DVR, penataan kabel (cabling setup), hingga integrasi pemantauan jarak jauh via mobile/online.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Edit Video</h3>
+                <p>Pemotongan klip, color grading, penyelarasan audio, serta pembuatan efek visual untuk konten media sosial maupun dokumentasi.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Edit Foto</h3>
+                <p>Retouching, manipulasi gambar, penyesuaian pencahayaan, dan pembuatan materi grafis visual yang profesional & menarik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Gallery Section -->
+    <section id="gallery">
+        <div class="section-title">
+            <h2>Galeri Skill & Karya</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-content">
+                    <i class="fas fa-network-wired gallery-icon"></i>
+                    <h4>Proyek Instalasi CCTV</h4>
+                    <p>Konfigurasi sistem keamanan & pemantauan area rumah/kantor.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-content">
+                    <i class="fas fa-photo-video gallery-icon"></i>
+                    <h4>Video Production & Editing</h4>
+                    <p>Pengolahan konten kreatif video cinematic & promosi.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-content">
+                    <i class="fas fa-sliders-h gallery-icon"></i>
+                    <h4>Digital Photo Retouching</h4>
+                    <p>Pengolahan warna & penyempurnaan detail gambar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobby Section -->
+    <section id="hobby">
+        <div class="section-title">
+            <h2>Hobi & Minat</h2>
+        </div>
+        <div class="grid-container" style="grid-template-columns: 1fr;">
+            <div class="card" style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
+                <div class="card-icon" style="margin-bottom: 0; width: 70px; height: 70px; font-size: 2rem;">
+                    <i class="fas fa-motorcycle"></i>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 6px;">Touring</h3>
+                    <p>Menjelajahi keindahan alam dan rute-rute baru dengan berkendara. Hobi ini melatih fokus, ketahanan, serta rasa kebersamaan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Informasi Kontak</h2>
+        </div>
+        <div class="contact-container">
+            <div class="card contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Email</h4>
+                    <a href="mailto:safiqusaputra0@gmail.com">safiqusaputra0@gmail.com</a>
+                </div>
+            </div>
+            <div class="card contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Telepon / WhatsApp</h4>
+                    <a href="https://wa.me/6285792124938" target="_blank">085792124938</a>
+                </div>
+            </div>
+            <div class="card contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Alamat</h4>
+                    <p>Perumahan Puri Teratai Blok F5, Kendalrejo, Kec. Talun, Kab. Blitar, Jawa Timur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Safiqudafa. Built for GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
+</canvas>
